@@ -59,6 +59,7 @@
 		C8748C1F1CD9FF0A004125DB /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dog.swift; path = ../Dog.swift; sourceTree = "<group>"; };
 		C8748C201CD9FF0A004125DB /* Walk+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Walk+CoreDataProperties.swift"; path = "../Walk+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8748C211CD9FF0A004125DB /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Walk.swift; path = ../Walk.swift; sourceTree = "<group>"; };
+		C8748C281CDB48B6004125DB /* Dog Walk v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dog Walk v2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,18 +110,15 @@
 		C8748BEA1CD9F648004125DB /* CustomCoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
-				C8748C1E1CD9FF0A004125DB /* Dog+CoreDataProperties.swift */,
-				C8748C1F1CD9FF0A004125DB /* Dog.swift */,
-				C8748C201CD9FF0A004125DB /* Walk+CoreDataProperties.swift */,
-				C8748C211CD9FF0A004125DB /* Walk.swift */,
+				C8748C271CDB23C1004125DB /* BubbleTea */,
+				C8748C261CDB2392004125DB /* DogWalk */,
 				C8748BEB1CD9F648004125DB /* AppDelegate.swift */,
-				C8748BED1CD9F648004125DB /* ViewController.swift */,
-				C8748BEF1CD9F648004125DB /* Main.storyboard */,
-				C8748BF21CD9F648004125DB /* Assets.xcassets */,
-				C8748BF41CD9F648004125DB /* LaunchScreen.storyboard */,
-				C8748BF71CD9F648004125DB /* Info.plist */,
 				C8748C191CD9F68A004125DB /* CoreDataStack.swift */,
 				C8748C1B1CD9FCDA004125DB /* Dog Walk.xcdatamodeld */,
+				C8748BEF1CD9F648004125DB /* Main.storyboard */,
+				C8748BF41CD9F648004125DB /* LaunchScreen.storyboard */,
+				C8748BF21CD9F648004125DB /* Assets.xcassets */,
+				C8748BF71CD9F648004125DB /* Info.plist */,
 			);
 			path = CustomCoreDataStack;
 			sourceTree = "<group>";
@@ -141,6 +139,25 @@
 				C8748C0D1CD9F648004125DB /* Info.plist */,
 			);
 			path = CustomCoreDataStackUITests;
+			sourceTree = "<group>";
+		};
+		C8748C261CDB2392004125DB /* DogWalk */ = {
+			isa = PBXGroup;
+			children = (
+				C8748C1E1CD9FF0A004125DB /* Dog+CoreDataProperties.swift */,
+				C8748C1F1CD9FF0A004125DB /* Dog.swift */,
+				C8748C201CD9FF0A004125DB /* Walk+CoreDataProperties.swift */,
+				C8748C211CD9FF0A004125DB /* Walk.swift */,
+				C8748BED1CD9F648004125DB /* ViewController.swift */,
+			);
+			name = DogWalk;
+			sourceTree = "<group>";
+		};
+		C8748C271CDB23C1004125DB /* BubbleTea */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BubbleTea;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +532,7 @@
 				C8748C121CD9F648004125DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8748C131CD9F648004125DB /* Build configuration list for PBXNativeTarget "CustomCoreDataStackTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +541,7 @@
 				C8748C151CD9F648004125DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8748C161CD9F648004125DB /* Build configuration list for PBXNativeTarget "CustomCoreDataStackUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +550,7 @@
 				C8748C181CD9F648004125DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -538,9 +558,10 @@
 		C8748C1B1CD9FCDA004125DB /* Dog Walk.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C8748C281CDB48B6004125DB /* Dog Walk v2.xcdatamodel */,
 				C8748C1C1CD9FCDA004125DB /* Dog Walk.xcdatamodel */,
 			);
-			currentVersion = C8748C1C1CD9FCDA004125DB /* Dog Walk.xcdatamodel */;
+			currentVersion = C8748C281CDB48B6004125DB /* Dog Walk v2.xcdatamodel */;
 			path = "Dog Walk.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

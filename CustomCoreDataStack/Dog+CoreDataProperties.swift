@@ -17,4 +17,5 @@ extension Dog {
     @NSManaged var name: String?
     @NSManaged var walks: NSOrderedSet?
 
+    @NSManaged var note: String?
 }

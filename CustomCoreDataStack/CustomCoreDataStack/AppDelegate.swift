@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let nav: UINavigationController =  window?.rootViewController as! UINavigationController
+        let tabBarC: UITabBarController =  window?.rootViewController as! UITabBarController
+        let nav: UINavigationController = tabBarC.viewControllers![0] as! UINavigationController
         
         let viewController: ViewController = nav.viewControllers[0] as! ViewController
         

@@ -15,12 +15,23 @@ class CoreDataStack{
     let model: NSManagedObjectModel
     var store: NSPersistentStore? = nil
     
+//    var options: NSDictionary?
+//    let modelName: String
+//    let storeName: String
+    
     func applicationDocumentDirectory() -> NSURL {
         let fileMgr = NSFileManager.defaultManager()
         let urls = fileMgr.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
         
         return urls[0]
     }
+    
+//    init(modelName: String, storeName: String, options: NSDictionary? = nil){
+//        self.modelName = modelName
+//        self.storeName = storeName
+//        self.options = options
+//        
+//    }
     
     init(){
         let bundle = NSBundle.mainBundle()
@@ -32,7 +43,8 @@ class CoreDataStack{
         
         let documentsURL = applicationDocumentDirectory()
         let storeURL = documentsURL.URLByAppendingPathComponent("Dog Walk")
-        let options = [NSMigratePersistentStoresAutomaticallyOption: true]
+        let options = [NSMigratePersistentStoresAutomaticallyOption: true,
+                       NSInferMappingModelAutomaticallyOption: true]
         
         do{
             store = try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)

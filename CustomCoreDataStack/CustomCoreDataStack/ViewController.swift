@@ -47,10 +47,21 @@ class ViewController: UITableViewController {
                 if dogs.count == 0 {
                     currentDog = Dog(entity: dogEntity!, insertIntoManagedObjectContext: managedContext)
                     currentDog.name = dogName
+                    currentDog.note = "This's my dog"
                     
                     try managedContext.save()
                 }else{
                     currentDog = dogs[0] as! Dog
+                    
+                    print("Dog note: \(currentDog.note!)")
+                    
+                    guard (currentDog.note) != nil else {
+                        currentDog.note = "This's my dog"
+                        try managedContext.save()
+                        
+                        return
+                    }
+
                 }
             }
             
@@ -73,11 +84,12 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("DogCell", forIndexPath: indexPath)
         
         let walk = currentDog.walks![indexPath.row] as! Walk
         
         cell.textLabel!.text = dateFormatter.stringFromDate(NSDate(timeIntervalSinceReferenceDate: walk.date))
+        cell.detailTextLabel?.text = currentDog.note
         
         return cell
     }
