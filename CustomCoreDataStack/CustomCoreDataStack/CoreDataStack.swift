@@ -44,7 +44,7 @@ class CoreDataStack{
         let documentsURL = applicationDocumentDirectory()
         let storeURL = documentsURL.URLByAppendingPathComponent("Dog Walk")
         let options = [NSMigratePersistentStoresAutomaticallyOption: true,
-                       NSInferMappingModelAutomaticallyOption: true]
+                       NSInferMappingModelAutomaticallyOption: false]
         
         do{
             store = try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)

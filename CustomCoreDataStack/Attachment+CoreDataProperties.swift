@@ -1,8 +1,8 @@
 //
-//  Dog+CoreDataProperties.swift
+//  Attachment+CoreDataProperties.swift
 //  CustomCoreDataStack
 //
-//  Created by maqj on 5/4/16.
+//  Created by maqj on 5/5/16.
 //  Copyright © 2016 maqj. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -11,12 +11,11 @@
 
 import Foundation
 import CoreData
+import UIKit
 
-extension Dog {
+extension Attachment {
 
-    @NSManaged var name: String?
-    @NSManaged var walks: NSOrderedSet?
+    @NSManaged var image: UIImage?
+    @NSManaged var dog: Dog?
 
-    @NSManaged var note: String?
-    @NSManaged var attachment: Attachment?
 }

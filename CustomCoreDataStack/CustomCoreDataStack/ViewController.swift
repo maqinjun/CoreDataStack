@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController , UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
     var managedContext: NSManagedObjectContext!
     
@@ -55,6 +55,8 @@ class ViewController: UITableViewController {
                     
                     print("Dog note: \(currentDog.note!)")
                     
+                    print("Dog attachment image: \(currentDog.attachment?.image)")
+                    
                     guard (currentDog.note) != nil else {
                         currentDog.note = "This's my dog"
                         try managedContext.save()
@@ -90,6 +92,9 @@ class ViewController: UITableViewController {
         
         cell.textLabel!.text = dateFormatter.stringFromDate(NSDate(timeIntervalSinceReferenceDate: walk.date))
         cell.detailTextLabel?.text = currentDog.note
+        cell.imageView?.image = currentDog.attachment?.image
+        
+        print("Image: \(currentDog.attachment?.image)")
         
         return cell
     }
@@ -114,6 +119,60 @@ class ViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         }
+    }
+    
+    /*
+     UITableViewDelegate implementations.
+     */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let imagePicker: UIImagePickerController = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        let attachMents = attachments()
+        
+        if let atts: [Attachment] = attachMents{
+            if atts.count == 0 {
+                let attEntity = NSEntityDescription.entityForName("Attachment", inManagedObjectContext: managedContext)
+                let attachment = Attachment(entity: attEntity!, insertIntoManagedObjectContext: managedContext)
+                attachment.image = image
+                currentDog.attachment = attachment
+            }
+        }
+        
+        currentDog.attachment?.image = image
+        try! managedContext.save()
+
+        print("Info: \(info)")
+        print("Image: \(currentDog.attachment?.image)")
+
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        tableView.reloadData()
+    }
+    
+    func attachments() -> [Attachment] {
+//        let attEntity = NSEntityDescription.entityForName("Attachment", inManagedObjectContext: managedContext)
+        let fetch = NSFetchRequest(entityName: "Attachment")
+        
+        do{
+            let result = try managedContext.executeFetchRequest(fetch) as! [Attachment]
+            return result;
+            
+        }catch{
+            print("Fetch attachment error: \(error)")
+        }
+        
+        return []
     }
     
     @IBAction func add(sender: AnyObject){
