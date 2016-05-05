@@ -26,6 +26,8 @@ class ViewController: UITableViewController {
         dateFormatter.dateStyle = .ShortStyle
         dateFormatter.timeStyle = .MediumStyle
 
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
         insertDogEntity()
     }
     
@@ -57,6 +59,9 @@ class ViewController: UITableViewController {
         }
     }
     
+    /*
+      UITableViewDataSource implementations.
+     */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numRows = 0
         
@@ -75,6 +80,28 @@ class ViewController: UITableViewController {
         cell.textLabel!.text = dateFormatter.stringFromDate(NSDate(timeIntervalSinceReferenceDate: walk.date))
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let walkToRemove = currentDog.walks![indexPath.row] as! Walk
+            
+            let walks = currentDog.walks!.mutableCopy() as! NSMutableOrderedSet
+            walks.removeObjectAtIndex(indexPath.row)
+            currentDog.walks = walks.copy() as? NSOrderedSet
+            
+            managedContext.deleteObject(walkToRemove)
+            
+            try! managedContext.save()
+          
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+        }
     }
     
     @IBAction func add(sender: AnyObject){
