@@ -23,6 +23,9 @@
 		C8748C321CDB59CF004125DB /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8748C301CDB59CF004125DB /* Attachment+CoreDataProperties.swift */; };
 		C8748C331CDB59CF004125DB /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8748C311CDB59CF004125DB /* Attachment.swift */; };
 		C8748C351CDB5A46004125DB /* Model2To3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = C8748C341CDB5A46004125DB /* Model2To3.xcmappingmodel */; };
+		C8748C3C1CDC8483004125DB /* CoreDataStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8748C3B1CDC8483004125DB /* CoreDataStackTest.swift */; };
+		C8748C3D1CDC84E5004125DB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8748C191CD9F68A004125DB /* CoreDataStack.swift */; };
+		C8748C3F1CDC8FCD004125DB /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8748C3E1CDC8FCD004125DB /* CoreDataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,8 @@
 		C8748C301CDB59CF004125DB /* Attachment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Attachment+CoreDataProperties.swift"; path = "../Attachment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8748C311CDB59CF004125DB /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attachment.swift; path = ../Attachment.swift; sourceTree = "<group>"; };
 		C8748C341CDB5A46004125DB /* Model2To3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = Model2To3.xcmappingmodel; path = "Dog Walk.xcdatamodeld/Model2To3.xcmappingmodel"; sourceTree = "<group>"; };
+		C8748C3B1CDC8483004125DB /* CoreDataStackTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackTest.swift; sourceTree = "<group>"; };
+		C8748C3E1CDC8FCD004125DB /* CoreDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +141,8 @@
 			children = (
 				C8748C001CD9F648004125DB /* CustomCoreDataStackTests.swift */,
 				C8748C021CD9F648004125DB /* Info.plist */,
+				C8748C3B1CDC8483004125DB /* CoreDataStackTest.swift */,
+				C8748C3E1CDC8FCD004125DB /* CoreDataTest.swift */,
 			);
 			path = CustomCoreDataStackTests;
 			sourceTree = "<group>";
@@ -322,7 +329,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8748C3F1CDC8FCD004125DB /* CoreDataTest.swift in Sources */,
+				C8748C3D1CDC84E5004125DB /* CoreDataStack.swift in Sources */,
 				C8748C011CD9F648004125DB /* CustomCoreDataStackTests.swift in Sources */,
+				C8748C3C1CDC8483004125DB /* CoreDataStackTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

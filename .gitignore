@@ -6,6 +6,9 @@
 build/
 DerivedData
 
+*DS_Store
+CustomCoreDataStack/.DS_Store
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
@@ -52,5 +55,3 @@ Carthage/Build
 fastlane/report.xml
 fastlane/screenshots
 
-*DS_Store
-DS_Store

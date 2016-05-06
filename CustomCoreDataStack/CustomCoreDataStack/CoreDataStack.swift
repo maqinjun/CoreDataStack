@@ -11,7 +11,7 @@ import CoreData
 
 class CoreDataStack{
     let context: NSManagedObjectContext
-    let psc: NSPersistentStoreCoordinator
+    var psc: NSPersistentStoreCoordinator?
     let model: NSManagedObjectModel
     var store: NSPersistentStore? = nil
     
@@ -47,7 +47,7 @@ class CoreDataStack{
                        NSInferMappingModelAutomaticallyOption: false]
         
         do{
-            store = try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)
+            store = try psc!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)
         }catch{
             print("Error adding persistent store: \(error)")
             abort()
